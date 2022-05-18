@@ -1,9 +1,10 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Renderer))]
 public class ColorPulse : MonoBehaviour {
+    [SerializeField, Range(0, 1)] float hueSpeed;
+    [SerializeField, Range(0, 1)] float saturationSpeed;
+    
     float timeOffset;
     MaterialPropertyBlock propertyBlock;
     Renderer rend;
@@ -24,8 +25,13 @@ public class ColorPulse : MonoBehaviour {
     }
 
     Color RandomColor() {
-        float H = .5f * (Mathf.Sin(Time.time * .5f + timeOffset) + 1f);
-        float S = .2f * (Mathf.Sin(Time.time * .8f + timeOffset) + .7f);
+        // Function form: amplitude * (sin(x * angular_frequency + phase) + offset)
+        // amplitude - the peak value (in case offset=0)
+        // angular_frequency - the lower the absolute value, the smoother the change will be
+        // phase - defines the initial value f(0)
+        // offset >= 1 - sets the function greater or equal 0
+        float H = .5f * (Mathf.Sin(Time.time * hueSpeed + timeOffset) + 1f);
+        float S = .5f * (Mathf.Sin(Time.time * saturationSpeed + timeOffset) + 1f);
         float V = .8f;
         Color newColor = Color.HSVToRGB(H, S, V);
         return newColor;

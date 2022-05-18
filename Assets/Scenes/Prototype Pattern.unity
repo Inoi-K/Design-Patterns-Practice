@@ -704,7 +704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdb73e9d7eae5b4dac1df26e3b07d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minScale: 0
+  speed: 0.3
+  minMaxScale: {x: 0.4, y: 1.5}
 --- !u!114 &766428885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7cbbcbecd45644a966bea2a5185f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hueSpeed: 0.4
+  saturationSpeed: 0.7
 --- !u!114 &766428886
 MonoBehaviour:
   m_ObjectHideFlags: 0
