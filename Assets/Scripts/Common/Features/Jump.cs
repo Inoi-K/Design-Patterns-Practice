@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Jump : MonoBehaviour {
+public class Jump : MonoBehaviour, IClickable {
     [SerializeField] float jumpForce;
     
     Rigidbody rb;
@@ -9,7 +9,11 @@ public class Jump : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void JumpUp() {
+    public void Click() {
+        JumpUp();
+    }
+    
+    void JumpUp() {
         rb.AddForce(jumpForce * transform.up);
     }
 }
