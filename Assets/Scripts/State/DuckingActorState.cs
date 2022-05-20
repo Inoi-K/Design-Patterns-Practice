@@ -2,24 +2,41 @@
 
 public class DuckingActorState : IActorState {
     float chargeDuration;
-
-    // put crouching in functions later
+    bool isCharged;
+    
+    Vector3 originalScale;
+    
     public void Enter(ActorStateController actor) {
-        Vector3 newPosition = actor.transform.position;
-        newPosition.y -= .5f; // hard-coded - bad
-        actor.transform.position = newPosition;
+        chargeDuration = 0;
+        isCharged = false;
+        originalScale = actor.transform.localScale;
+        
+        actor.rb.useGravity = false;
+        actor.transform.localScale = actor.DuckingScale;
     }
 
+    // perhaps, there could be placed a state for a charged condition
     public void UpdateState(ActorStateController actor) {
         if (Input.GetKeyUp(KeyCode.C)) {
-            IActorState newState = chargeDuration > actor.requiredChargeDuration ? actor.jumpingState : actor.standingState;
+            IActorState newState = isCharged ? actor.JumpingState : actor.StandingState;
             actor.ChangeState(newState);
+            return;
         }
+        
+        if (!isCharged && chargeDuration > actor.RequiredChargeDuration) {
+            isCharged = true;
+            actor.ShowEffect();
+        }
+        
+        chargeDuration += Time.deltaTime;
+    }
+    
+    public void OnTriggerEnter(ActorStateController actor) {
+        
     }
 
     public void Exit(ActorStateController actor) {
-        Vector3 newPosition = actor.transform.position;
-        newPosition.y += .5f; // hard-coded - bad
-        actor.transform.position = newPosition;
+        actor.transform.localScale = originalScale;
+        actor.rb.useGravity = true;
     }
 }

@@ -2,18 +2,17 @@
 
 public class JumpingActorState : IActorState {
     public void Enter(ActorStateController actor) {
-        actor.rb.AddForce(Vector3.up * actor.jumpForce);
+        actor.rb.AddForce(actor.transform.up * actor.JumpForce);
     }
 
     public void UpdateState(ActorStateController actor) {
         if (Input.GetKeyDown(KeyCode.X)) {
-            actor.ChangeState(actor.divingState);
+            actor.ChangeState(actor.DivingState);
         }
-
-        // change to OnTriggerEnter function inside this state
-        if (actor.isGrounded) {
-            actor.ChangeState(actor.standingState);
-        }
+    }
+    
+    public void OnTriggerEnter(ActorStateController actor) {
+        actor.ChangeState(actor.StandingState);
     }
 
     public void Exit(ActorStateController actor) {

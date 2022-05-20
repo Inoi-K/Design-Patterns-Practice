@@ -2,13 +2,15 @@
 
 public class DivingActorState : IActorState {
     public void Enter(ActorStateController actor) {
-        actor.rb.AddForce(Vector3.one * -actor.jumpForce);
+        actor.rb.AddForce(actor.transform.up * -actor.JumpForce);
     }
 
     public void UpdateState(ActorStateController actor) {
-        if (actor.isGrounded) {
-            actor.ChangeState(actor.standingState);
-        }
+        
+    }
+    
+    public void OnTriggerEnter(ActorStateController actor) {
+        actor.ChangeState(actor.StandingState);
     }
 
     public void Exit(ActorStateController actor) {
