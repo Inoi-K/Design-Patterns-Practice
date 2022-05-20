@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a256ef51c742849af96ba398068dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 875547471}
+  <audioManager>k__BackingField: {fileID: 875547471}
 --- !u!1 &781695744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,8 +1130,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781695744}
-  m_LocalRotation: {x: 0.37466517, y: -0.29677424, z: 0.1279512, w: 0.8690107}
-  m_LocalPosition: {x: 5.918, y: 7.629, z: -7.875}
+  m_LocalRotation: {x: 0.41929987, y: -0.3494588, z: 0.17900954, w: 0.81854856}
+  m_LocalPosition: {x: 7.166, y: 12.383867, z: -6.885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -4,8 +4,8 @@ using UnityEngine;
 public class Game : MonoBehaviour {
     public static Game Instance { get; private set; }
 
-    public AudioManager audioManager;
-    
+    [field: SerializeField] public AudioManager audioManager { get; private set; }
+
     void Awake() {
         if (Instance != null) {
             Destroy(gameObject);
