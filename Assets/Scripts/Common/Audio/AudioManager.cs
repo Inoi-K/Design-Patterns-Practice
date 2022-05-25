@@ -11,16 +11,16 @@ public class AudioManager : MonoBehaviour {
         PlayAudioFrom(musicLibrary.GetRandomClip(), musicSource);
     }
     
-    public void PlayMusic(string musicName) {
-        PlayAudioFrom(musicLibrary.GetClipFromName(musicName), musicSource);
+    public void PlayMusic(AudioType musicType) {
+        PlayAudioFrom(musicLibrary.GetClipFromType(musicType), musicSource);
     }
 
     public void PlayRandomSound() {
         PlayAudioFrom(soundLibrary.GetRandomClip(), sfxSource);
     }
     
-    public void PlaySound(string soundName) {
-        PlayAudioFrom(soundLibrary.GetClipFromName(soundName), sfxSource);
+    public void PlaySound(AudioType soundType) {
+        PlayAudioFrom(soundLibrary.GetClipFromType(soundType), sfxSource);
     }
 
     void PlayAudioFrom(AudioClip clip, AudioSource source) {

@@ -5,17 +5,17 @@ using UnityEngine;
 public class AudioLibrary : MonoBehaviour {
     [SerializeField] AudioGroup[] audioGroups;
 
-    Dictionary<string, AudioClip[]> groupDictionary = new ();
+    Dictionary<AudioType, AudioClip[]> groupDictionary = new ();
 
     private void Awake() {
         foreach (AudioGroup soundGroup in audioGroups) {
-            groupDictionary.Add(soundGroup.groupID, soundGroup.group);
+            groupDictionary.Add(soundGroup.groupType, soundGroup.group);
         }
     }
 
-    public AudioClip GetClipFromName(string clipName) {
-        if (groupDictionary.ContainsKey(clipName)) {
-            AudioClip[] audios = groupDictionary[clipName];
+    public AudioClip GetClipFromType(AudioType clipType) {
+        if (groupDictionary.ContainsKey(clipType)) {
+            AudioClip[] audios = groupDictionary[clipType];
             return audios[Random.Range(0, audios.Length)];
         }
         return null;
@@ -28,7 +28,7 @@ public class AudioLibrary : MonoBehaviour {
 
     [System.Serializable]
     public class AudioGroup {
-        public string groupID;
+        public AudioType groupType;
         public AudioClip[] group;
     }
 }

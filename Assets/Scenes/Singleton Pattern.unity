@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioGroups:
-  - groupID: calm
+  - groupType: 1
     group:
     - {fileID: 8300000, guid: 31a6fa3682637be45871c56df4565dff, type: 3}
     - {fileID: 8300000, guid: 39ae275ce6a797f4ba9971671165b33a, type: 3}
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a256ef51c742849af96ba398068dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <audioManager>k__BackingField: {fileID: 875547471}
+  <AudioManager>k__BackingField: {fileID: 0}
 --- !u!1 &781695744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,21 +1423,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioGroups:
-  - groupID: audience
+  - groupType: 3
     group:
     - {fileID: 8300000, guid: d77ee8d6f2efdaf408773a6dd8849752, type: 3}
     - {fileID: 8300000, guid: 9a8f22bd4d39f8f43a56560ef18d8600, type: 3}
-  - groupID: explosion
+  - groupType: 4
     group:
     - {fileID: 8300000, guid: dce0fc50c98b24282867ddc791aa869d, type: 3}
     - {fileID: 8300000, guid: d1f2477ca0d094c828b805f8745c21be, type: 3}
-  - groupID: random
+  - groupType: 0
     group:
     - {fileID: 8300000, guid: 56227355334454a669691eddf1801cb9, type: 3}
     - {fileID: 8300000, guid: a245ac773194142cfa12c21de3e0980b, type: 3}
     - {fileID: 8300000, guid: 2bd37df2fb96f4d978c1f706701ce87f, type: 3}
     - {fileID: 8300000, guid: 006910ae2cc6e426c9797a60920c1243, type: 3}
-  - groupID: click
+  - groupType: 5
     group:
     - {fileID: 8300000, guid: 792a6e132d38a4f70bbae7f091a6cab3, type: 3}
     - {fileID: 8300000, guid: 16458abe8d5a64f7a8082f0de46d643f, type: 3}

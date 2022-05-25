@@ -1,4 +1,5 @@
 using System;
+using Singleton;
 using UnityEngine;
 
 public class ClickHandler : MonoBehaviour {
@@ -8,7 +9,7 @@ public class ClickHandler : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, Camera.main.farClipPlane, clickableMask)) {
                 hit.transform.GetComponent<IClickable>()?.Click();
-                Game.Instance.audioManager.PlayRandomSound();
+                Game.Instance.AudioManager.PlayRandomSound();
             }
         }
     }
