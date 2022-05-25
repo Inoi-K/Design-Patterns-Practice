@@ -2,8 +2,7 @@ using UnityEngine;
 using Singleton;
 
 namespace SubclassSandbox {
-    [System.Serializable]
-    public abstract class Superpower {
+    public abstract class Superpower : ScriptableObject {
         protected HeroController hero;
         
         public void Init(HeroController hero) {
