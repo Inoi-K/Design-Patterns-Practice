@@ -1,4 +1,4 @@
-﻿namespace Command_Pattern {
+﻿namespace Command {
     public class NullCommand : ICommand {
         public void Execute() {}
         public void Undo() {}

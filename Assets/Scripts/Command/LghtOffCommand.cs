@@ -1,18 +1,20 @@
-public class LightOffCommand : ICommand {
-    LightArea lightArea;
-    float previousIntensityRatio;
+namespace Command {
+    public class LightOffCommand : ICommand {
+        LightArea lightArea;
+        float previousIntensityRatio;
     
-    public LightOffCommand(LightArea lightArea) {
-        this.lightArea = lightArea;
-    }
+        public LightOffCommand(LightArea lightArea) {
+            this.lightArea = lightArea;
+        }
 
-    public void Execute() {
-        previousIntensityRatio = lightArea.GetIntensityRatio();
+        public void Execute() {
+            previousIntensityRatio = lightArea.GetIntensityRatio();
         
-        lightArea.SetIntensityRatio(0);
-    }
+            lightArea.SetIntensityRatio(0);
+        }
 
-    public void Undo() {
-        lightArea.SetIntensityRatio(previousIntensityRatio);
+        public void Undo() {
+            lightArea.SetIntensityRatio(previousIntensityRatio);
+        }
     }
 }

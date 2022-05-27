@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 
-public class TheaterActor : MonoBehaviour {
-    public string nickname;
+namespace DoubleBuffer {
+    public class TheaterActor : MonoBehaviour {
+        public string nickname;
     
-    public bool currentSlapped { get; private set; }
-    bool nextSlapped;
+        public bool currentSlapped { get; private set; }
+        bool nextSlapped;
 
-    public virtual void React() {}
+        public virtual void React() {}
 
-    public void GetSlapped() {
-        nextSlapped = true;
-    }
+        public void GetSlapped() {
+            nextSlapped = true;
+        }
     
-    public void Swap() {
-        currentSlapped = nextSlapped;
-        nextSlapped = false;
+        public void Swap() {
+            currentSlapped = nextSlapped;
+            nextSlapped = false;
+        }
     }
 }
