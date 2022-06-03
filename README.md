@@ -109,6 +109,19 @@ When you want a new object, ask the pool for one. It finds an available object, 
 - You normally rely on a garbage collector or `new` and `delete` to handle memory management for you. By using an object pool, you’re saying, “I know better how these bytes should be handled.” That means the onus is on you to deal with this pattern’s limitations.
 - If you do use an object pool in concert with a garbage collector, beware of a potential conflict. Since the pool doesn’t actually deallocate objects when they’re no longer in use, they remain in memory. If they contain references to _other_ objects, it will prevent the collector from reclaiming those too. To avoid this, when a pooled object is no longer in use, clear any references it has to other objects.
 
+## 20. Spatial Partition
+### Intent
+_Efficiently locate objects by storing them in a data structure organized by their positions._
+
+### The Pattern
+For a set of **objects**, each has a **position in space**. Store them in a **spatial data structure** that organizes the objects by their positions. This data structure lets you **efficiently query for objects at or near a location**. When an object’s position changes, **update the spatial data structure** so that it can continue to find the object.
+
+### Notes
+- Each of spatial data structures basically extends an existing well-known data structure from 1D into more dimensions:
+	- A grid is a persistent  [bucket sort](http://en.wikipedia.org/wiki/Bucket_sort).
+	- BSPs, k-d trees, and bounding volume hierarchies are  [binary search trees](http://en.wikipedia.org/wiki/Binary_search_tree).
+	- Quadtrees and octrees are  [tries](http://en.wikipedia.org/wiki/Trie).
+
 ## References
 1. [Game Programming Patterns book by Robert Nystrom](https://gameprogrammingpatterns.com/contents.html)
 2. [Design Pattern in Object Oriented Programming playlist by Christopher Okhravi](https://youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc)
